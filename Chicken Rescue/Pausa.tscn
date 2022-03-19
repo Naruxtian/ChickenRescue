@@ -1,0 +1,94 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Sprites/pause.jpg" type="Texture" id=1]
+[ext_resource path="res://Pixeltype.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Sprites/BotonNivel.png" type="Texture" id=3]
+[ext_resource path="res://Pausa.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 80
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 80
+font_data = ExtResource( 2 )
+
+[node name="Pausa" type="CanvasLayer"]
+pause_mode = 2
+script = ExtResource( 4 )
+
+[node name="Fondo" type="TextureRect" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0.392157 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 1.41422
+margin_bottom = 1.41418
+rect_scale = Vector2( 1.00197, 0.997541 )
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Reanudar" type="Button" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -122.0
+margin_top = -88.0
+margin_right = 122.0
+margin_bottom = -22.0
+rect_scale = Vector2( 1, 0.943977 )
+custom_fonts/font = SubResource( 1 )
+text = "RESUME"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Boton" type="TextureRect" parent="Reanudar"]
+show_behind_parent = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -119.0
+margin_top = -43.0638
+margin_right = 111.0
+margin_bottom = 33.9362
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Exit" type="Button" parent="."]
+visible = false
+margin_left = 398.873
+margin_top = 324.838
+margin_right = 620.873
+margin_bottom = 393.838
+custom_fonts/font = SubResource( 2 )
+text = "EXIT"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Exit"]
+show_behind_parent = true
+margin_left = -6.0
+margin_top = -4.0
+margin_right = 228.0
+margin_bottom = 63.0
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Reanudar" to="." method="_on_Reanudar_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_Exit_pressed"]

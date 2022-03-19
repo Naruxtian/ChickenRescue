@@ -1,0 +1,98 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Sprites/Prota - GameOver.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Huevo_Estrellado.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/PixelEgg.png" type="Texture" id=3]
+[ext_resource path="res://Pixeltype.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Sprites/flame.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Sol.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/pause.jpg" type="Texture" id=7]
+[ext_resource path="res://Game Over.gd" type="Script" id=8]
+[ext_resource path="res://Sounds/Game Over.ogg" type="AudioStream" id=9]
+
+[sub_resource type="DynamicFont" id=1]
+size = 150
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 110
+font_data = ExtResource( 4 )
+
+[node name="Game Over" type="CanvasLayer"]
+script = ExtResource( 8 )
+
+[node name="Fondo" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sol" type="Sprite" parent="."]
+position = Vector2( 870.107, 218.956 )
+scale = Vector2( 0.57339, 0.525268 )
+texture = ExtResource( 6 )
+
+[node name="Prota - GameOver" type="Sprite" parent="."]
+position = Vector2( 161.449, 434.895 )
+rotation = -0.0244505
+scale = Vector2( 8.78543, 8.82878 )
+texture = ExtResource( 1 )
+flip_h = true
+
+[node name="Huevo_Estrellado" type="Sprite" parent="."]
+position = Vector2( 884.249, 532.575 )
+scale = Vector2( 0.514642, 0.429631 )
+texture = ExtResource( 2 )
+
+[node name="PixelEgg" type="Sprite" parent="."]
+position = Vector2( 589.67, 470.726 )
+rotation = -0.0111446
+scale = Vector2( 0.340394, 0.330665 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="flame" type="Sprite" parent="PixelEgg"]
+show_behind_parent = true
+position = Vector2( 57.4453, -242.33 )
+rotation = -0.00520155
+scale = Vector2( 42.3121, 37.9596 )
+texture = ExtResource( 5 )
+
+[node name="GameOver" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -391.866
+margin_top = 16.9514
+margin_right = 75.1342
+margin_bottom = 121.951
+custom_fonts/font = SubResource( 1 )
+text = "GAME OVER"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 26.7271
+margin_top = 114.035
+margin_right = 710.727
+margin_bottom = 190.035
+custom_fonts/font = SubResource( 2 )
+text = "The eggs are fried"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back" type="Timer" parent="."]
+wait_time = 14.0
+
+[node name="GameOverOst" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = -5.0
+[connection signal="timeout" from="Back" to="." method="_on_Back_timeout"]

@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://PlataformaMovil.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Plataforma4.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 32.0466, 15.7791 )
+
+[node name="PlataformaMovil" type="Node2D"]
+position = Vector2( 272.533, 278.914 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+move_to = Vector2( 150, 100 )
+speed = 8.0
+
+[node name="Plataforma" type="KinematicBody2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Plataforma"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataforma"]
+visible = false
+shape = SubResource( 1 )
+
+[node name="Tween" type="Tween" parent="."]
+repeat = true
+playback/repeat = true
